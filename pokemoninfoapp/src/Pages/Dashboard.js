@@ -1,21 +1,22 @@
 import Sidebar from "../Components/Sidebar";
 import Button from "react-bootstrap/Button";
-import {Card, Col, Row} from "react-bootstrap";
+import {Container, Card, Col, Row} from "react-bootstrap";
 import '../CSS/global.css'
 import WelcomeCard from "../Components/WelcomeCard";
 import PokemonStrengthWeaknessCard from "../Components/PokemonStrengthWeaknessCard";
 import DoughnutChart from "../Components/DougnutChart";
 import "../CSS/DougnutChart.css";
+import Front from '../Images/Front.png';
 const Dashboard = () => {
   return (
     <>
-      <div className="container-fluid ">
-        <div className="row ">
-          <div className="col-1 sidebar-background">
+      <Container fluid>
+        <Row>
+          <Col xs={1} className="sidebar-background vh-100 sticky-top">
             <Sidebar></Sidebar>
-          </div>
+          </Col>
           {/* Top card */}
-          <div className="col-10 mx-auto">
+          <Col xs={11}>
             <WelcomeCard />
             <Row xs={1} md={2} className="g-4 mt-5">
               <Col>
@@ -49,21 +50,21 @@ const Dashboard = () => {
             <Row xs={1} md={3} className="g-4 mt-5">
               {Array.from({ length: 3 }).map((_, idx) => (
                 <Col key={idx}>
-                  <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
+                  <Card className="mb-5">
                     <Card.Body>
-                      <Card.Title>Card title</Card.Title>
+                      <img src={Front}></img>
+                      <Card.Title>Name: Charmander</Card.Title>
                       <Card.Text>
-                        
+                        Conditions for evolution: Level 20
                       </Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>
               ))}
             </Row>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

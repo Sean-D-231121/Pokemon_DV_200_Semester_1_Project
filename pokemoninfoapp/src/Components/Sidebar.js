@@ -4,10 +4,10 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 function Sidebar() {
   return (
-    <Navbar expand="lg" className="sidebar">
+    <Navbar expand="lg">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav ">
-        <Nav className="mx-auto flex-column vh-100 sidebar">
+        <Nav className="mx-auto flex-column vh-100 ">
           <Nav.Link as={Link} to="/">
             Dashboard
           </Nav.Link>

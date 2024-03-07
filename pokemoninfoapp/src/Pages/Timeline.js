@@ -15,7 +15,7 @@ const Timeline = () =>{
     return (
       <Container fluid>
         <Row>
-          <Col xs={1} className="sidebar-background ">
+          <Col xs={1} className="sidebar-background vh-100 sticky-top ">
             <Sidebar></Sidebar>
           </Col>
           <Col xs={11}>
