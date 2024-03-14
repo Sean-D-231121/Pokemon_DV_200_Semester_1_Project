@@ -1,7 +1,7 @@
 import Sidebar from "../Components/Sidebar";
 import { Container, Row, Col } from "react-bootstrap";
 import "../CSS/global.css";
-
+import PokemonInfo from "../Components/GetPokemon";
 import CompareCard from "../Components/CompareCard";
 const CompareStats = () => {
   return (
@@ -12,8 +12,9 @@ const CompareStats = () => {
         </Col>
         <Col xs={11}>
           <Row xs={4} md={2} className="mx-auto">
-            <CompareCard />
-            <CompareCard />
+            <CompareCard name={"charmander"}/>
+            <CompareCard name={"scyther"}/>
+            <PokemonInfo />
           </Row>
         </Col>
       </Row>

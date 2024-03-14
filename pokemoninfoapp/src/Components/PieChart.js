@@ -9,7 +9,7 @@ const PieChart = (props) => {
     labels: props.getLabels,
     datasets: [
       {
-        label: "Amount of traffic",
+        label: "percentage",
         data: props.getData,
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",

@@ -18,12 +18,12 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const BarChart = () =>{
+const BarChart = (props) =>{
     const options = {
       Scales: {
-        x: {
+        y: {
           min: 1,
-          max: 100,
+          max: 200,
         },
       },
       elements: {
@@ -41,19 +41,19 @@ const BarChart = () =>{
       },
     };
     const labels = [
+      "HP",
       "Attack",
       "Defense",
-      "Health",
+      "Special attack",
+      "Special defense",
       "Speed",
-      "SP. Defense",
-      "SP.Attack",
     ];
 const data = {
   labels,
   datasets: [
     {
       label: "Stats",
-      data:[50,123,122,55,23,34],
+      data:props.stats,
       borderColor: "rgb(255, 99, 132)",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
     },

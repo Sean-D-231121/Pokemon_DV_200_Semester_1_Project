@@ -21,17 +21,17 @@ ChartJS.register(
 const RadarChart = (props) =>{
     const data = {
       labels: [
+        "HP",
         "Attack",
         "Defense",
-        "Health",
+        "Special attack",
+        "Special defense",
         "Speed",
-        "Sp. Defense",
-        "Sp. Attack",
       ],
       datasets: [
         {
           label: "Pokemon stats",
-          data: [47, 59, 37, 85, 32, 73],
+          data: props.stats,
           backgroundColor: "rgba(255, 99, 132, 0.2)",
           borderColor: "rgba(255, 99, 132, 1)",
           borderWidth: 1,

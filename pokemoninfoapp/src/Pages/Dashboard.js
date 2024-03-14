@@ -21,7 +21,6 @@ const Dashboard = () => {
             <Row xs={1} md={2} className="g-4 mt-5">
               <Col>
                 <Card>
-                  <Card.Img variant="top" src="holder.js/100px160" />
                   <Card.Body>
                     <Card.Title>Total pokemon types</Card.Title>
                     <Card.Text className="chartContainer mx-auto">

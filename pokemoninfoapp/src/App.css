@@ -29,6 +29,19 @@
 .App-link {
   color: #61dafb;
 }
+.navbarlink, h1,h2,h3,h4,h5 {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+*{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 
 @keyframes App-logo-spin {
   from {
