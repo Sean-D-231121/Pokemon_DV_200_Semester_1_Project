@@ -1,13 +1,38 @@
 import Sidebar from "../Components/Sidebar";
 import Button from "react-bootstrap/Button";
 import {Container, Card, Col, Row} from "react-bootstrap";
+import TypeStrengthsWeaknesses from "../Components/PokemonTypesStrengthWeaknesses";
 import '../CSS/global.css'
 import WelcomeCard from "../Components/WelcomeCard";
 import PokemonStrengthWeaknessCard from "../Components/PokemonStrengthWeaknessCard";
 import DoughnutChart from "../Components/DougnutChart";
 import "../CSS/DougnutChart.css";
 import Front from '../Images/Front.png';
+import PokemonEvolution from "../Components/PokemonEvolutionChain";
+import axios from "axios";
+import { useEffect, useState } from "react";
 const Dashboard = () => {
+  const [randomPokemon, setRandomPokemon] = useState(null);
+  const [randPokemonNumber, setRandPokemonNumber] = useState("")
+  useEffect(() => {
+    const getRandomPokemon = async () => {
+      try {
+        const randomId = Math.floor(Math.random() * 898) + 1; // Assuming there are 898 Pokémon in the API
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${randomId}`
+        );
+        setRandomPokemon(response.data);
+        setRandPokemonNumber(response.data.id)
+        console.log(randPokemonNumber)
+        console.log()
+      } catch (error) {
+        console.error("Error fetching random Pokémon:", error);
+      }
+    };
+
+    getRandomPokemon();
+  }, []);
+  console.log(randPokemonNumber)
   return (
     <>
       <Container fluid>
@@ -17,7 +42,10 @@ const Dashboard = () => {
           </Col>
           {/* Top card */}
           <Col xs={11}>
-            <WelcomeCard />
+            {randPokemonNumber && (
+              <WelcomeCard pokemonName={randPokemonNumber} />
+            )}
+
             <Row xs={1} md={2} className="g-4 mt-5">
               <Col>
                 <Card>
@@ -30,23 +58,11 @@ const Dashboard = () => {
                 </Card>
               </Col>
               <Col>
-                {/* <Card>
-                  <Card.Img variant="top" src="holder.js/100px160" />
-                  <Card.Body>
-                    <Card.Title>Pokemon strength and weaknesses</Card.Title>
-
-                    <Card.Text>
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </Card.Text>
-                  </Card.Body>
-                </Card> */}
-                <PokemonStrengthWeaknessCard></PokemonStrengthWeaknessCard>
+                <TypeStrengthsWeaknesses />
               </Col>
             </Row>
             <h2 className="mt-5">Pokemon evoluton</h2>
-            <Row xs={1} md={3} className="g-4 mt-5">
+            {/* <Row xs={1} md={3} className="g-4 mt-5">
               {Array.from({ length: 3 }).map((_, idx) => (
                 <Col key={idx}>
                   <Card className="mb-5">
@@ -60,7 +76,10 @@ const Dashboard = () => {
                   </Card>
                 </Col>
               ))}
-            </Row>
+            </Row> */}
+            {randPokemonNumber && (
+              <PokemonEvolution pokemonName={randPokemonNumber} />
+            )}
           </Col>
         </Row>
       </Container>

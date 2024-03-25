@@ -11,10 +11,9 @@ const CompareCard = (props) => {
   const [pokemonData, setPokemonData] = useState(null);
   const [pokemonName, setPokemonName] = useState(props.name);
   const [gender, setGender] = useState(null);
-  const [loading, setLoading] = useState(true);
+
   const [error, setError] = useState(null);
   const [stats, setStats] = useState(null)
-  const generation = "iv"
   useEffect(() => {
     const fetchPokemonData = async () => {
       try {
@@ -58,9 +57,9 @@ const CompareCard = (props) => {
          }
 
          setGender([malePercentage, femalePercentage ]);
-         setLoading(false);
+         
        } catch (error) {
-         setLoading(false);
+        
          setError("Error fetching Pokémon data");
          console.error("Error fetching Pokémon data:", error.message);
        }
@@ -113,9 +112,9 @@ const CompareCard = (props) => {
        }
 
        setGender([malePercentage, femalePercentage]);
-       setLoading(false);
+       
      } catch (error) {
-       setLoading(false);
+      
        setError("Error fetching Pokémon data");
        console.error("Error fetching Pokémon data:", error.message);
      }
@@ -138,8 +137,8 @@ const CompareCard = (props) => {
                       type="text"
                       placeholder="Enter Pokémon name"
                       value={pokemonName}
-                      onChange={(e) =>
-                        setPokemonName(e.target.value.toLowerCase())
+                      onChange={(event) =>
+                        setPokemonName(event.target.value.toLowerCase())
                       }
                     />
                   </Form.Group>

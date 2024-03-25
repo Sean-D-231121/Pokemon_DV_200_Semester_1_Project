@@ -22,7 +22,7 @@ function PokemonInfo() {
         type="text"
         placeholder="Enter Pokémon name"
         value={pokemonName}
-        onChange={(e) => setPokemonName(e.target.value.toLowerCase())}
+        onChange={(event) => setPokemonName(event.target.value.toLowerCase())}
       />
       <button onClick={fetchPokemonData}>Search</button>
       {pokemonData && (

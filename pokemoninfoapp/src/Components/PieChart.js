@@ -33,7 +33,7 @@ const PieChart = (props) => {
   };
   return (
     <>
-      <h2> Amount of traffic on GoodToGo</h2>
+      <h2>Male to Female Ratio</h2>
       <Pie data={data} />
     </>
   );

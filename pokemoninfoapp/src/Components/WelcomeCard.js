@@ -1,16 +1,45 @@
 import { Card, Col, Row, Button } from "react-bootstrap";
 import logo from '../Images/Logo.png'
 import '../CSS/Card.css';
-const WelcomeCard = () => {
+import axios from "axios";
+import { useEffect, useState } from "react";
+import RadarChart from "./RadarChart";
+const WelcomeCard = ({pokemonName}) => {
+  const [pokemonData, setPokemonData] = useState(null);
+  const [stats, setStats] = useState([])
+  useEffect(() => {
+    const getPokemonData= async () => {
+      try {
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+        );
+        setPokemonData(response.data);
+         const getStats = response.data.stats.map((stat) => stat.base_stat);
+         setStats(getStats);
+      } catch (error) {
+        console.error("Error fetching random Pokémon:", error);
+      }
+    };
+
+    getPokemonData();
+  }, []);
   return (
-    <Card  className="mt-5 p-5">
+    <Card className="mt-5 p-5">
       <Card.Body>
-        <Card.Title> <img src={logo}></img></Card.Title>
-        <Card.Text>
-          Charpedia is a information website where you can compare pokemon against
-          one another, Check their growth rate and find data which includes data about all pokemon.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Row>
+          {pokemonData && (
+            <Col>
+              <img
+                src={pokemonData.sprites.front_default}
+                alt={pokemonData.name}
+              />
+            </Col>
+          )}
+
+          <Col xs={2}>
+          <RadarChart stats={stats} />
+          </Col>
+        </Row>
       </Card.Body>
     </Card>
   );

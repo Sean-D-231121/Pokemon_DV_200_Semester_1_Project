@@ -29,7 +29,7 @@ const LineChart = (props) => {
     scales: {
       y: {
         min: 1,
-        max: 100,
+        max: props.getData[4],
       },
     },
   };
