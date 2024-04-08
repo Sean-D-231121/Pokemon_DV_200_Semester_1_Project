@@ -1,12 +1,35 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
 import { Container, Card, Col, Row } from "react-bootstrap";
+
+
+
 const TypeStrengthsWeaknesses = () => {
   const [types, setTypes] = useState([]);
   const [selectedType, setSelectedType] = useState(null);
   const [strengths, setStrengths] = useState([]);
   const [weaknesses, setWeaknesses] = useState([]);
   const [currentType, setCurrentType] = useState("normal")
+  const ButtonColor = [
+    "rgba(255, 99, 132, 1)",
+    "rgba(54, 162, 235, 1)",
+    "rgba(255, 206, 86, 1)",
+    "rgba(75, 192, 192, 1)",
+    "rgba(153, 102, 255, 1)",
+    "rgba(255, 159, 64, 1)",
+    "rgba(255, 100, 132, 1)",
+    "rgba(54, 20, 255, 1)",
+    "rgba(255, 222, 210, 1)",
+    "rgba(59, 121, 255, 1)",
+    "rgba(153, 102, 255, 1)",
+    "rgba(255, 159, 64, 1)",
+    "rgba(255, 99, 132, 1)",
+    "rgba(54, 162, 235, 1)",
+    "rgba(255, 206, 86, 1)",
+    "rgba(75, 192, 192, 1)",
+    "rgba(153, 102, 255, 1)",
+    "rgba(255, 159, 64, 1)",
+  ];
   useEffect(() => {
     const fetchTypes = async () => {
       try {
@@ -18,6 +41,8 @@ const TypeStrengthsWeaknesses = () => {
     };
 
     fetchTypes();
+   setSelectedType("https://pokeapi.co/api/v2/type/2/");
+   fetchTypeData("https://pokeapi.co/api/v2/type/2/");
   }, []);
 
   const fetchTypeData = async (typeUrl) => {
@@ -48,6 +73,7 @@ const TypeStrengthsWeaknesses = () => {
               <button
                 key={index}
                 value={type.name}
+                style={{backgroundColor: ButtonColor[index] }}
                 onClick={(event) => {
                   handleTypeClick(type.url);
                   setCurrentType(event.target.value);
@@ -87,3 +113,5 @@ const TypeStrengthsWeaknesses = () => {
 };
 
 export default TypeStrengthsWeaknesses;
+
+

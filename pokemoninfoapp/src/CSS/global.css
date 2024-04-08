@@ -4,3 +4,17 @@
 .sidebar-background{
     background: #FFBE98 !important;
 }
+*{
+    color:rgb(56, 50, 52) ! important
+}
+.image-size{
+    width: 200px;
+    height: 200px;
+}
+.image-size-large{
+    width: 400px;
+    height: 400px;
+}
+.welcome-card{
+    max-height: 60vh !important;
+}

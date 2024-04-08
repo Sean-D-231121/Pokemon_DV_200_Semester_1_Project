@@ -41,10 +41,10 @@ const PokemonImages = ({ pokemonNumber }) => {
       {pokemonData && (
         <Row>
           <Col>
-            <img src={pokemonData.sprites.front_default} alt="Front" />
+            <img className="image-size" src={pokemonData.sprites.front_default} alt="Front" />
           </Col>
           <Col>
-            <img src={pokemonData.sprites.back_default} alt="Back" />
+            <img className="image-size" src={pokemonData.sprites.back_default} alt="Back" />
           </Col>
         </Row>
       )}

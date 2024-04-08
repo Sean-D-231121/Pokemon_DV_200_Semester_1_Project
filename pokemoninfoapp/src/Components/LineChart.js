@@ -13,7 +13,7 @@ const LineChart = (props) => {
     labels: props.getLabels,
     datasets: [
       {
-        label: "Stocks per month",
+        label: "Pokemon experience",
         data: props.getData,
         borderColor: "rgba(75,192,192,1)",
         backgroundColor: "rgba(75,192,192,0.2)",
@@ -29,14 +29,14 @@ const LineChart = (props) => {
     scales: {
       y: {
         min: 1,
-        max: props.getData[4],
+        max: 1500000
       },
     },
   };
 
   return (
     <>
-      <h2>Stocks for GoodToGo</h2>
+      <h2>Pokemon experience needed per level</h2>
       <Line data={data} options={options} />
     </>
   );

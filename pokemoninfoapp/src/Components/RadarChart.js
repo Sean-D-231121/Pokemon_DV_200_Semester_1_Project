@@ -38,7 +38,12 @@ const RadarChart = (props) =>{
         },
       ],
     };
-    return <Radar data={data} />;
+    return (
+    <>
+    <h3 style={{textDecoration:"underline"}}>Stats distribution</h3>
+      <Radar data={data} />
+    </>
+    )
 }
 
 

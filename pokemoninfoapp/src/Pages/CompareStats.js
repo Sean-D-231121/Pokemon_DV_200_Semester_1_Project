@@ -6,10 +6,10 @@ const CompareStats = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={1} className="sidebar-background vh-100 sticky-top ">
+        <Col xs={2} className="sidebar-background vh-100 sticky-top ">
           <Sidebar></Sidebar>
         </Col>
-        <Col xs={11}>
+        <Col xs={10}>
           <Row xs={4} md={2} className="mx-auto">
             <CompareCard name={"charmander"}/>
             <CompareCard name={"scyther"}/>

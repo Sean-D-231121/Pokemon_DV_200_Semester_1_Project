@@ -67,7 +67,6 @@ const PokemonEvolution = ({ pokemonName }) => {
                   <Card.Img src={pokemon.imageUrl} alt={pokemon.name} />
                   <Card.Body>
                     <h2>{pokemon.name}</h2>
-                    <p>Condition</p>
                   </Card.Body>
                 </Card>
               </Col>

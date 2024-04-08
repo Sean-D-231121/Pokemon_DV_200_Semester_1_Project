@@ -1,9 +1,6 @@
 import Sidebar from "../Components/Sidebar";
 import '../CSS/Sidebar.css';
-import Front from "../Images/Front.png";
-import Back from "../Images/Back.png";
 import { Container, Row, Col, Form, Card, Button} from "react-bootstrap";
-import PokemonImage from "../Components/PokemonImage";
 import LineChart from "../Components/LineChart";
 import '../CSS/linechart.css'
 import RadarChart from "../Components/RadarChart";
@@ -22,15 +19,16 @@ const Timeline = () =>{
     const [speciesData, setSpeciesData] = useState({})
     const [stats,setStats] = useState([])
     const [pokemonNumber, setPokemonNumber] = useState("")
+    const [pokeTypes, setPokeTypes] = useState([])
      useEffect(() => {
        const fetchPokemonData = async () => {
          try {
            const response = await axios.get(
              `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
-           ); // Fetching data for Pikachu (ID: 1) as an example
+           ); 
            setPokemonData(response.data);
            setPokemonNumber(response.data.id)
-           
+           setPokeTypes(response.types)
            const getStats = response.data.stats.map((stat) => stat.base_stat);
            setStats(getStats);
            const speciesUrl = response.data.species.url;
@@ -100,20 +98,17 @@ const Timeline = () =>{
     return (
       <Container fluid>
         <Row>
-          <Col xs={1} className="sidebar-background vh-100 sticky-top ">
+          <Col xs={2} className="sidebar-background vh-100 sticky-top ">
             <Sidebar></Sidebar>
           </Col>
-          <Col xs={11}>
+          <Col xs={10}>
             <Col xs={3} className="mx-auto mt-5">
-              <input
+              <Form.Control
                 type="text"
                 value={pokemonName}
                 onChange={handleInputChange}
                 placeholder="Enter Pokémon name"
               />
-              <Button onClick={fetchPokemonData}>
-                Fetch Experience Levels
-              </Button>
             </Col>
             <Row xs={6} md={2}>
               <PokemonImages pokemonNumber={pokemonNumber} />
@@ -146,22 +141,39 @@ const Timeline = () =>{
                           <p>Name : {pokemonData.name}</p>
                           <p>Height: {pokemonData.height * 10}m</p>
                           <p>Weight: {(pokemonData.weight * 100) / 1000}kg</p>
-                          <p>Types: Fire</p>
+                          <p>
+                            <p>
+                              Types:
+                              {pokemonData.types
+                                ? pokemonData.types
+                                    .map((type) => type.type.name)
+                                    .join(", ")
+                                : "Loading..."}
+                            </p>
+                          </p>
                         </Col>
                         <Col
                           xs={3}
                           style={{ textAlign: "start" }}
                           className="px-3"
                         >
-                           {speciesData && (
+                          {speciesData && (
                             <>
-                            <p>Capture rate: {(speciesData.capture_rate/255 *100).toFixed()}%</p>
-                            <p>Base Happiness: {speciesData.base_happiness}/100</p>
+                              <p>
+                                Capture rate:{" "}
+                                {(
+                                  (speciesData.capture_rate / 255) *
+                                  100
+                                ).toFixed()}
+                                %
+                              </p>
+                              <p>
+                                Base Happiness: {speciesData.base_happiness}/100
+                              </p>
                             </>
-                            )}
-                          
+                          )}
                         </Col>
-                        <Col xs={3}>
+                        <Col  xs={5}>
                           <RadarChart stats={stats} />
                         </Col>
                       </>

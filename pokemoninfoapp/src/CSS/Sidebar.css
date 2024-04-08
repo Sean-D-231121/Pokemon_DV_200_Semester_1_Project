@@ -8,6 +8,9 @@
     height: 100vh
 }
 .sidebar-button{
-    background-color: #fdaf82;
+    background-color: #fdaf82 !important;
     border-radius: 10px;
+    width: auto;
+    height: auto;
 }
+

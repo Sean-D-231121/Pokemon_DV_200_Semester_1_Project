@@ -33,7 +33,7 @@ const PieChart = (props) => {
   };
   return (
     <>
-      <h2>Male to Female Ratio</h2>
+      <h2 style={{textDecoration: "underline"}}>Male to Female Ratio</h2>
       <Pie data={data} />
     </>
   );

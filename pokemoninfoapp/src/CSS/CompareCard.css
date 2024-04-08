@@ -2,3 +2,11 @@
     width: 200px;
     height: 200px;
 }
+.compare-button{
+    background-color: #fdaf82 !important;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    border: none;
+    font-weight: 700;
+}

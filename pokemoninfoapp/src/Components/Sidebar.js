@@ -1,11 +1,11 @@
-import { Button } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import Logo from "../Images/Logo.png"
 function Sidebar() {
   return (
-    <Navbar expand="lg">
+    <Navbar expand="lg" >
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav ">
         <Nav className="mx-auto flex-column vh-100 w-100">

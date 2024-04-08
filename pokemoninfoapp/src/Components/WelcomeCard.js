@@ -24,19 +24,20 @@ const WelcomeCard = ({pokemonName}) => {
     getPokemonData();
   }, []);
   return (
-    <Card className="mt-5 p-5">
+    <Card className="welcome-card mt-2 p-2">
       <Card.Body>
         <Row>
           {pokemonData && (
-            <Col>
+            <Col xs={6}>
               <img
+              className="image-size-large justify-content-center"
                 src={pokemonData.sprites.front_default}
                 alt={pokemonData.name}
               />
             </Col>
           )}
 
-          <Col xs={2}>
+          <Col xs={4}>
           <RadarChart stats={stats} />
           </Col>
         </Row>
