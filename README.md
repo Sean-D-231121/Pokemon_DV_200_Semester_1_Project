@@ -52,7 +52,6 @@ Use `Open Workspace` in Visual Studio.
 * [React-Bootstrap](https://react-bootstrap.netlify.app/)
 * [Axios](https://axios-http.com/docs/intro)
 * [React Chartjs](https://react-chartjs-2.js.org/)
-* [Pokeapi](https://pokeapi.co/)
 
 
 ## Contributing
